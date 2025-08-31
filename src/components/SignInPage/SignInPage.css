@@ -1,6 +1,6 @@
 .sign-in-header,
 .sign-in-form {
-    margin: 1.75em auto;
+    margin: var(--section-spacing) auto;
 }
 
 .sign-in-header {

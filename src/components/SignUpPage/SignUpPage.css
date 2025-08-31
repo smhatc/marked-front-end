@@ -1,6 +1,6 @@
 .sign-up-header,
 .sign-up-form {
-    margin: 1.75em auto;
+    margin: var(--section-spacing) auto;
 }
 
 .sign-up-header {

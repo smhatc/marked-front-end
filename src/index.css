@@ -61,6 +61,8 @@
     --margin-items-m: 0.75em;
     --margin-items-l: 1em;
 
+    --section-spacing: 1.75em;
+
     --border-thickness: 0.2rem;
     --border-solid: var(--border-thickness) solid var(--color-border);
     --border-dashed: var(--border-thickness) dashed var(--color-border);
@@ -76,6 +78,8 @@
     --transition-function: ease;
     --transition-duration-short: 0.2s;
     --transition-duration-long: 0.4s;
+
+    --header-height: 99px;
 }
 
 ::selection {
@@ -218,6 +222,13 @@ button:disabled:hover {
 
 textarea {
     resize: none;
+}
+
+code {
+    padding: var(--padding-items-ss);
+    border-radius: var(--border-radius-main);
+    background-color: var(--bg-color-secondary);
+    font-family: var(--font-family-text);
 }
 
 hr {

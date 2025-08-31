@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
 import SignInPage from "./components/SignInPage/SignInPage";
+import HomePage from "./components/HomePage/HomePage";
 
 import * as authService from "./services/authService";
 
@@ -42,6 +43,8 @@ const App = () => {
         <>
             <Header user={user} handleSignOut={handleSignOut} />
             <Routes>
+                <Route path="/" element={<HomePage user={user} />} />
+
                 <Route
                     path="/sign-up"
                     element={
