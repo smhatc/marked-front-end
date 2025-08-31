@@ -1,0 +1,48 @@
+.page-footer {
+    padding: 2em;
+    text-align: center;
+    background-color: var(--bg-color-secondary);
+}
+
+.page-footer a,
+.page-footer button {
+    transition: outline var(--transition-duration-short)
+        var(--transition-function);
+}
+
+.page-footer a:focus-visible,
+.page-footer button:focus-visible {
+    outline: var(--outline-main);
+}
+
+.page-footer-branding {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: var(--margin-items-l);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.page-footer-branding a::after {
+    content: none;
+}
+
+.page-footer-branding-logo {
+    max-width: 5em;
+    max-height: 5em;
+}
+
+.page-footer-branding-copyright {
+    margin-top: var(--margin-items-ss);
+}
+
+.page-footer-contact {
+    margin: 0 auto;
+}
+
+.page-footer-contact a:focus-visible {
+    outline: none;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 import * as authService from "./services/authService";
 
@@ -16,6 +17,7 @@ const App = () => {
     return (
         <>
             <Header user={user} handleSignOut={handleSignOut} />
+            {!user && <Footer />}
         </>
     );
 };
