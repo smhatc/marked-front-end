@@ -73,7 +73,7 @@ const Header = ({ user, handleSignOut }) => {
                             onClick={toggleProfile}
                         >
                             {user ? (
-                                user.username[0].toUpperCase()
+                                user[0].toUpperCase()
                             ) : (
                                 <img
                                     className="profile-picture-genericimg"
@@ -92,7 +92,7 @@ const Header = ({ user, handleSignOut }) => {
                                 {user ? (
                                     <>
                                         <div className="profile-user">
-                                            {user.username}
+                                            {user}
                                         </div>
                                         <Link
                                             className="signout-button"
