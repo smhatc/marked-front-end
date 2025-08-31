@@ -80,12 +80,12 @@
 
 ::selection {
     background: var(--bg-color-accent);
-    color: var(--color-text);
+    color: var(--color-white-main);
 }
 
 ::-moz-selection {
     background: var(--bg-color-accent);
-    color: var(--color-text);
+    color: var(--color-white-main);
 }
 
 html {
@@ -232,6 +232,7 @@ hr {
     margin: var(--margin-items-l) 0;
     font-weight: var(--font-weight-text-l);
     background-color: var(--bg-color-accent);
+    color: var(--color-white-main);
 }
 
 .submitbtn:disabled {
@@ -252,7 +253,7 @@ hr {
     border-radius: var(--border-radius-circle);
     text-align: center;
     background-color: var(--color-danger);
-    color: var(--color-text);
+    color: var(--color-white-main);
 }
 
 @media (prefers-color-scheme: light) {

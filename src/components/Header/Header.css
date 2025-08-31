@@ -90,8 +90,8 @@
     cursor: pointer;
     font-size: var(--font-size-text-m);
     font-weight: var(--font-weight-text-l);
-    color: var(--color-text);
     background-color: var(--bg-color-accent);
+    color: var(--color-white-main);
 }
 
 .profile-picture-genericimg {
@@ -117,7 +117,6 @@
 }
 
 .profile-user {
-    margin-bottom: var(--margin-items-m);
     font-weight: var(--font-weight-text-l);
     text-align: center;
     word-break: break-all;
@@ -136,12 +135,13 @@
     text-align: center;
     font-weight: var(--font-weight-text-l);
     color: var(--color-text);
-    background-color: var(--bg-color-accent);
 }
 
-.sign-in-link {
-    margin-bottom: var(--margin-items-m);
-    background-color: transparent;
+.sign-up-link,
+.signout-button {
+    margin-top: var(--margin-items-m);
+    color: var(--color-white-main);
+    background-color: var(--bg-color-accent);
 }
 
 .sign-in-link:hover,
