@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
+import SignInPage from "./components/SignInPage/SignInPage";
 
 import * as authService from "./services/authService";
 
@@ -47,12 +48,12 @@ const App = () => {
                     }
                 />
 
-                {/* <Route
+                <Route
                     path="/sign-in"
                     element={
-                        <SignInPage handleSignIn={handleSignIn} user={user} />
+                        <SignInPage user={user} handleSignIn={handleSignIn} />
                     }
-                /> */}
+                />
             </Routes>
             {!user && <Footer />}
         </>
