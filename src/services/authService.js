@@ -13,6 +13,7 @@ const signUp = async (formData) => {
         if (!res.ok) throw new Error(data.error || "Something went wrong");
         if (data.token) {
             localStorage.setItem("token", data.token);
+            localStorage.setItem("username", data.username);
             const decodedToken = JSON.parse(atob(data.token.split(".")[1]));
             return decodedToken;
         }
@@ -34,6 +35,7 @@ const signIn = async (formData) => {
         if (!res.ok) throw new Error(data.error || "Something went wrong");
         if (data.token) {
             localStorage.setItem("token", data.token);
+            localStorage.setItem("username", data.username);
             const decodedToken = JSON.parse(atob(data.token.split(".")[1]));
             return decodedToken;
         }
@@ -43,13 +45,10 @@ const signIn = async (formData) => {
 };
 
 const getUser = () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-        const decodedToken = JSON.parse(atob(token.split(".")[1]));
-        return decodedToken;
-    } else {
-        return null;
-    }
+    const username = localStorage.getItem("username");
+    if (username) {
+        return username;
+    } else return null;
 };
 
 export { signUp, signIn, getUser };
