@@ -111,12 +111,18 @@ const Header = ({ user, handleSignOut }) => {
                                         <Link
                                             className="sign-in-link"
                                             to={"/sign-in"}
+                                            onClick={() =>
+                                                setProfileOpen(false)
+                                            }
                                         >
                                             Sign In
                                         </Link>
                                         <Link
                                             className="sign-up-link"
                                             to={"/sign-up"}
+                                            onClick={() =>
+                                                setProfileOpen(false)
+                                            }
                                         >
                                             Sign Up
                                         </Link>
