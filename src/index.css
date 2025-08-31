@@ -18,7 +18,7 @@
 
     --color-accent: #9a5aab;
     --color-accent-disabled: #8557e944;
-    --color-danger: #ff5249;
+    --color-danger: #d8281e;
 
     --color-text: var(--color-white-main);
     --color-links: var(--color-accent);
@@ -170,11 +170,16 @@ a:focus-visible::after {
     transform: scaleX(1);
 }
 
+label {
+    font-weight: var(--font-weight-text-l);
+}
+
 button,
 input,
 textarea,
 select {
     display: block;
+    width: 100%;
     transition: all var(--transition-duration-long) var(--transition-function);
     padding: 0.375em;
     border: var(--border-solid);
@@ -185,6 +190,12 @@ select {
     line-height: var(--line-height-text);
     background-color: var(--bg-color-secondary);
     color: var(--color-text);
+}
+
+input,
+textarea,
+select {
+    margin-bottom: var(--margin-items-s);
 }
 
 button:hover,
@@ -217,6 +228,16 @@ hr {
     background-color: var(--bg-color-accent);
 }
 
+.submitbtn {
+    margin: var(--margin-items-l) 0;
+    font-weight: var(--font-weight-text-l);
+    background-color: var(--bg-color-accent);
+}
+
+.submitbtn:disabled {
+    background-color: var(--bg-color-accent-disabled);
+}
+
 .error-message {
     min-height: 1.8em;
     font-size: var(--font-size-text-ss);
@@ -227,7 +248,7 @@ hr {
 
 .error-icon {
     display: inline-block;
-    padding: 0.1em 0.7em;
+    padding: 0.1em 0.6em;
     border-radius: var(--border-radius-circle);
     text-align: center;
     background-color: var(--color-danger);

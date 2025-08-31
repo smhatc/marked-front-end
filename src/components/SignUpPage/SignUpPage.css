@@ -1,0 +1,12 @@
+.sign-up-header,
+.sign-up-form {
+    margin: 1.75em auto;
+}
+
+.sign-up-header {
+    text-align: center;
+}
+
+.sign-up-form {
+    width: 75%;
+}
