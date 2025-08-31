@@ -37,7 +37,8 @@ The reason I chose to create a Markdown note-taking app as my project despite it
 
 ## 📚 Attributions
 
--
+-   [Logo by Flaticon](https://www.flaticon.com/free-icons/notepad).
+-   Google Fonts (Kode Mono, Roboto Mono).
 
 ## 🤔 Next Steps
 
