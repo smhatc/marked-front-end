@@ -72,7 +72,7 @@ const Header = ({ user, handleSignOut }) => {
                             id="profileToggle"
                             onClick={toggleProfile}
                         >
-                            {user ? (
+                            {user && typeof user === "string" ? (
                                 user[0].toUpperCase()
                             ) : (
                                 <img
@@ -89,7 +89,7 @@ const Header = ({ user, handleSignOut }) => {
                                 className="profile-dropdown"
                                 id="profileMenu"
                             >
-                                {user ? (
+                                {user && typeof user === "string" ? (
                                     <>
                                         <div className="profile-user">
                                             {user}

@@ -34,6 +34,7 @@ const App = () => {
 
     const handleSignOut = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("username");
         setUser(null);
     };
 

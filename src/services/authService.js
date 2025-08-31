@@ -10,12 +10,11 @@ const signUp = async (formData) => {
             body: JSON.stringify(formData),
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Something went wrong");
-        if (data.token) {
+        if (!res.ok) throw new Error(data.detail || "Something went wrong");
+        if (data.token && data.username) {
             localStorage.setItem("token", data.token);
             localStorage.setItem("username", data.username);
-            const decodedToken = JSON.parse(atob(data.token.split(".")[1]));
-            return decodedToken;
+            return data.username;
         }
     } catch (error) {
         throw error;
@@ -32,12 +31,11 @@ const signIn = async (formData) => {
             body: JSON.stringify(formData),
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Something went wrong");
-        if (data.token) {
+        if (!res.ok) throw new Error(data.detail || "Something went wrong");
+        if (data.token && data.username) {
             localStorage.setItem("token", data.token);
             localStorage.setItem("username", data.username);
-            const decodedToken = JSON.parse(atob(data.token.split(".")[1]));
-            return decodedToken;
+            return data.username;
         }
     } catch (error) {
         throw error;
