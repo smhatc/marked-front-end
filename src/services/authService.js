@@ -1,4 +1,4 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_BASE_URL}/api/v1/auth`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_BASE_URL}/auth`;
 
 const signUp = async (formData) => {
     try {
