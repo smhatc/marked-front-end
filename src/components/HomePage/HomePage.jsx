@@ -74,7 +74,7 @@ const HomePage = ({ user }) => {
                                 note, just click the delete button.
                             </p>
                             <p className="home-howto-text-para">
-                                Optionally create collections to oraganize your
+                                Optionally create collections to organize your
                                 notes. Feel free to rename or delete these
                                 collections any time you wish.
                             </p>
@@ -110,12 +110,12 @@ const HomePage = ({ user }) => {
                                 <p className="home-learnmd-text-para">
                                     With just a few simple symbols, you can
                                     structure content quickly and consistently.
-                                    Learn the basics by exploring{" "}
+                                    Learn the basics by exploring the{" "}
                                     <a
                                         href="https://www.markdownguide.org/basic-syntax"
                                         target="_blank"
                                     >
-                                        the official Markdown Guide
+                                        official Markdown Guide
                                     </a>
                                     .
                                 </p>
