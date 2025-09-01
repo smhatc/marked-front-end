@@ -1,7 +1,10 @@
 import { Link } from "react-router";
+import { useAuth } from "../../contexts/AuthContext";
 import "./HomePage.css";
 
-const HomePage = ({ user }) => {
+const HomePage = () => {
+    const { user } = useAuth();
+
     return (
         <main>
             {user ? (

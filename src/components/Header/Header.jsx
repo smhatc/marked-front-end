@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
+import { useAuth } from "../../contexts/AuthContext";
 import "./Header.css";
 
-const Header = ({ user, handleSignOut }) => {
+const Header = () => {
+    const { user, handleSignOut } = useAuth();
+
     const [profileOpen, setProfileOpen] = useState(false);
 
     const headerRef = useRef(null);

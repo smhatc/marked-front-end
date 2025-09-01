@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
+import { useAuth } from "../../contexts/AuthContext";
 import "./SignInPage.css";
 
-const SignInPage = ({ user, handleSignIn }) => {
+const SignInPage = () => {
+    const { user, handleSignIn } = useAuth();
+
     const navigate = useNavigate();
 
     useEffect(() => {

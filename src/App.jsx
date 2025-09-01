@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router";
+import { AuthProvider } from "./contexts/AuthContext";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -7,60 +7,19 @@ import SignUpPage from "./components/SignUpPage/SignUpPage";
 import SignInPage from "./components/SignInPage/SignInPage";
 import HomePage from "./components/HomePage/HomePage";
 
-import * as authService from "./services/authService";
-
 const App = () => {
-    const initialState = authService.getUser();
-    const [user, setUser] = useState(initialState);
-
-    const handleSignUp = async (formData) => {
-        try {
-            const res = await authService.signUp(formData);
-            setUser(res);
-            return { success: true };
-        } catch (error) {
-            return { success: false, message: error.message };
-        }
-    };
-
-    const handleSignIn = async (formData) => {
-        try {
-            const res = await authService.signIn(formData);
-            setUser(res);
-            return { success: true };
-        } catch (error) {
-            return { success: false, message: error.message };
-        }
-    };
-
-    const handleSignOut = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-        setUser(null);
-    };
-
     return (
-        <>
-            <Header user={user} handleSignOut={handleSignOut} />
+        <AuthProvider>
+            <Header />
             <Routes>
-                <Route path="/" element={<HomePage user={user} />} />
+                <Route path="/" element={<HomePage />} />
 
-                <Route
-                    path="/sign-up"
-                    element={
-                        <SignUpPage user={user} handleSignUp={handleSignUp} />
-                    }
-                />
+                <Route path="/sign-up" element={<SignUpPage />} />
 
-                <Route
-                    path="/sign-in"
-                    element={
-                        <SignInPage user={user} handleSignIn={handleSignIn} />
-                    }
-                />
+                <Route path="/sign-in" element={<SignInPage />} />
             </Routes>
-            {!user && <Footer />}
-        </>
+            <Footer />
+        </AuthProvider>
     );
 };
 

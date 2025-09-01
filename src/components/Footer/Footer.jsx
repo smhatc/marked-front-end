@@ -1,7 +1,11 @@
 import { Link } from "react-router";
+import { useAuth } from "../../contexts/AuthContext";
 import "./Footer.css";
 
 const Footer = () => {
+    const { user } = useAuth();
+    if (user) return null;
+
     return (
         <footer className="page-footer">
             <div className="page-footer-branding">
