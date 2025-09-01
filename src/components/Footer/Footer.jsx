@@ -18,23 +18,23 @@ const Footer = () => {
             </div>
 
             <p className="page-footer-contact">
-                <Link to="https://www.linkedin.com/in/smhatc" target="_blank">
+                <a href="https://www.linkedin.com/in/smhatc" target="_blank">
                     LinkedIn
-                </Link>{" "}
+                </a>{" "}
                 |{" "}
-                <Link
-                    to={"https://github.com/smhatc/marked-front-end"}
+                <a
+                    href={"https://github.com/smhatc/marked-front-end"}
                     target="_blank"
                 >
                     GitHub
-                </Link>
+                </a>
                 <br />
-                <Link
-                    to={"https://www.flaticon.com/free-icons/notepad"}
+                <a
+                    href={"https://www.flaticon.com/free-icons/notepad"}
                     target="_blank"
                 >
                     Logo by Flaticon
-                </Link>
+                </a>
             </p>
         </footer>
     );

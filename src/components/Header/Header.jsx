@@ -96,7 +96,7 @@ const Header = ({ user, handleSignOut }) => {
                                         </div>
                                         <Link
                                             className="signout-button"
-                                            to="/"
+                                            to={"/"}
                                             onClick={(e) => {
                                                 setProfileOpen(false);
                                                 handleSignOut &&
