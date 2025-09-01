@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
 import { AuthProvider } from "./contexts/AuthContext";
+import { NotesProvider } from "./contexts/NoteContext";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
