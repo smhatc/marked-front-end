@@ -2,17 +2,19 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_BASE_URL}/notes`;
 
 // Create
 const createNote = async (noteFormData) => {
-    const res = await fetch(BASE_URL, {
-        method: "POST",
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(noteFormData),
-    });
-    const json = await res.json();
-    if (!res.ok) throw new Error(json?.message || "Create note failed");
-    return json;
+    try {
+        const res = await fetch(BASE_URL, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(noteFormData),
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 // Read All
