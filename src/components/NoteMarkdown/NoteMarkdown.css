@@ -17,6 +17,11 @@
     gap: var(--flex-gap-s);
 }
 
+.note-markdown-body {
+    height: 100%;
+    cursor: text;
+}
+
 .note-markdown-body-header {
     margin-bottom: var(--margin-items-l);
 }
