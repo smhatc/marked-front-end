@@ -1,3 +1,4 @@
+/* Signed Out */
 .home-hero {
     display: flex;
     flex-direction: row;
@@ -14,7 +15,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 2.5em;
+    gap: var(--flex-gap-l);
     margin: var(--section-spacing);
     text-align: center;
 }
@@ -25,7 +26,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2.5em;
+    gap: var(--flex-gap-l);
     margin-bottom: 0.625em;
 }
 
@@ -99,5 +100,38 @@
 .home-learnmd-text-heading,
 .home-learnmd-text-para {
     margin-top: var(--margin-items-l);
+    text-align: center;
+}
+
+/* Signed In */
+.home-workspace {
+    display: flex;
+    flex-direction: row;
+    gap: var(--flex-gap-s);
+    height: calc(100svh - var(--header-height));
+    padding: var(--section-spacing);
+    overflow: hidden;
+}
+
+.home-workspace-sidebar {
+    flex: 1 1 30%;
+    height: 100%;
+    max-width: 30%;
+}
+
+.home-workspace-editarea {
+    flex: 1 1 70%;
+    height: 100%;
+    max-width: 70%;
+}
+
+.home-workspace-editarea-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: var(--border-dashed);
+    border-radius: var(--border-radius-main);
     text-align: center;
 }

@@ -1,14 +1,171 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
+import { useNotes } from "../../contexts/NoteContext";
+import { useCollections } from "../../contexts/CollectionContext";
+import CollectionsAndNotesList from "../CollectionsAndNotesList/CollectionsAndNotesList";
+import NoteForm from "../NoteForm/NoteForm";
+import NoteMarkdown from "../NoteMarkdown/NoteMarkdown";
 import "./HomePage.css";
 
 const HomePage = () => {
     const { user } = useAuth();
 
+    const {
+        handleIndexNotes,
+        handleShowNote,
+        handleAddNote,
+        handleUpdateNote,
+        handleDeleteNote,
+    } = useNotes();
+
+    const {
+        handleIndexCollections,
+        handleAddCollection,
+        handleUpdateCollection,
+        handleDeleteCollection,
+    } = useCollections();
+
+    const [notesList, setNotesList] = useState([]);
+    const [collectionsList, setCollectionsList] = useState([]);
+
+    const [selectedNoteId, setSelectedNoteId] = useState(null);
+    const [currentNote, setCurrentNote] = useState(null);
+    const [showNoteForm, setShowNoteForm] = useState(false);
+    const [showPreview, setShowPreview] = useState(false);
+    const [editingCollectionId, setEditingCollectionId] = useState(null);
+
+    const extract = (res) => res?.data ?? res ?? null;
+
+    const refreshNotes = async () => {
+        const res = await handleIndexNotes();
+        const raw = res?.data ?? res ?? [];
+        setNotesList(Array.isArray(raw) ? raw : []);
+    };
+
+    const refreshCollections = async () => {
+        const res = await handleIndexCollections();
+        const raw = res?.data ?? res ?? [];
+        setCollectionsList(Array.isArray(raw) ? raw : []);
+    };
+
+    const refreshAll = async () => {
+        await Promise.all([refreshCollections(), refreshNotes()]);
+    };
+
+    useEffect(() => {
+        refreshAll();
+    }, []);
+
+    const showPreviewForNote = async (noteOrId) => {
+        const id =
+            typeof noteOrId === "object"
+                ? noteOrId.id ?? noteOrId._id
+                : noteOrId;
+        if (!id) return;
+        const res = await handleShowNote(id);
+        const note = extract(res);
+        if (!note) return;
+        setSelectedNoteId(note.id ?? note._id ?? null);
+        setCurrentNote(note);
+        setShowPreview(true);
+        setShowNoteForm(false);
+    };
+
+    const openFormForEdit = (noteId) => {
+        setSelectedNoteId(noteId ?? null);
+        setShowNoteForm(true);
+        setShowPreview(false);
+    };
+
+    const handleNoteSaved = async (savedRes) => {
+        const saved = extract(savedRes);
+        if (!saved) return;
+        await refreshNotes();
+        await showPreviewForNote(saved);
+    };
+
+    const handleNoteDeleted = async () => {
+        await refreshNotes();
+        setSelectedNoteId(null);
+        setCurrentNote(null);
+        setShowPreview(false);
+        setShowNoteForm(false);
+    };
+
+    const saveCollection = async (maybeId, name) => {
+        if (maybeId) {
+            const idForBackend = isNaN(Number(maybeId))
+                ? maybeId
+                : Number(maybeId);
+            await handleUpdateCollection(idForBackend, { name });
+        } else {
+            await handleAddCollection({ name });
+        }
+        await refreshAll();
+    };
+
+    const deleteCollection = async (id) => {
+        const idForBackend = id;
+        await handleDeleteCollection(idForBackend);
+        await refreshAll();
+    };
+
     return (
         <main>
             {user ? (
-                <></>
+                <div className="home-workspace">
+                    <section className="home-workspace-sidebar">
+                        <CollectionsAndNotesList
+                            collections={collectionsList}
+                            notes={notesList}
+                            onSelectNote={(noteOrId) =>
+                                showPreviewForNote(noteOrId)
+                            }
+                            onNewNote={() => {
+                                setSelectedNoteId(null);
+                                setCurrentNote(null);
+                                openFormForEdit(null);
+                            }}
+                            onSaveCollection={(id, name) =>
+                                saveCollection(id, name)
+                            }
+                            onDeleteCollection={(id) => deleteCollection(id)}
+                        />
+                    </section>
+
+                    <section className="home-workspace-editarea">
+                        {showPreview ? (
+                            <NoteMarkdown
+                                note={currentNote}
+                                onEdit={(n) => openFormForEdit(n.id ?? n._id)}
+                                onDeleted={() => handleNoteDeleted()}
+                                onClose={() => {
+                                    setShowPreview(false);
+                                }}
+                            />
+                        ) : showNoteForm ? (
+                            <NoteForm
+                                noteId={selectedNoteId}
+                                onSaved={(saved) => handleNoteSaved(saved)}
+                                collections={collectionsList}
+                                onClose={() => {
+                                    setShowNoteForm(false);
+                                    setSelectedNoteId(null);
+                                }}
+                            />
+                        ) : (
+                            <div className="home-workspace-editarea-placeholder">
+                                <h1>
+                                    [ Select a note
+                                    <br />
+                                    or <br />
+                                    create a new one ]
+                                </h1>
+                            </div>
+                        )}
+                    </section>
+                </div>
             ) : (
                 <>
                     <section className="home-hero">
