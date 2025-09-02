@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNotes } from "../../contexts/NoteContext";
 import "./NoteForm.css";
 
-const NoteForm = ({ noteId = null, onSaved = () => {}, collections = [] }) => {
+const NoteForm = ({
+    noteId = null,
+    onSaved = () => {},
+    onClose = () => {},
+    collections = [],
+}) => {
     const { handleShowNote, handleAddNote, handleUpdateNote } = useNotes();
     const [formData, setFormData] = useState({
         title: "",
@@ -115,13 +120,18 @@ const NoteForm = ({ noteId = null, onSaved = () => {}, collections = [] }) => {
                 placeholder="Enter Markdown text..."
             />
 
-            <button
-                className="submitbtn"
-                type="submit"
-                disabled={formIsInvalid || loading}
-            >
-                Save
-            </button>
+            <div className="note-form-buttons">
+                <button type="button" onClick={() => onClose()}>
+                    Close
+                </button>
+                <button
+                    className="submitbtn"
+                    type="submit"
+                    disabled={formIsInvalid || loading}
+                >
+                    Save
+                </button>
+            </div>
         </form>
     );
 };

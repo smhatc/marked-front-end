@@ -10,3 +10,10 @@
 .note-form-contentinput {
     height: 100%;
 }
+
+.note-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--flex-gap-s);
+}
