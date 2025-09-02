@@ -1,0 +1,22 @@
+.note-markdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flex-gap-s);
+    height: 100%;
+    padding: var(--section-spacing);
+    border: var(--border-solid);
+    border-radius: var(--border-radius-main);
+    overflow: auto;
+    word-break: break-word;
+}
+
+.note-markdown-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--flex-gap-s);
+}
+
+.note-markdown-body-header {
+    margin-bottom: var(--margin-items-l);
+}
