@@ -1,0 +1,7 @@
+.collection-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--flex-gap-ss);
+    margin-top: -0.75em;
+}
