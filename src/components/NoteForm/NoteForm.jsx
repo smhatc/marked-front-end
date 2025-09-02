@@ -82,43 +82,37 @@ const NoteForm = ({ noteId = null, onSaved = () => {}, collections = [] }) => {
 
     return (
         <form className="note-form" onSubmit={handleSubmit}>
-            <div>
-                <div>
-                    <label>Title</label>
-                    <input
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                        placeholder="Enter title..."
-                    />
-                </div>
+            <label htmlFor="title">Title</label>
+            <input
+                id="title"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Enter title..."
+            />
 
-                <div>
-                    <label>Collection</label>
-                    <select
-                        value={formData.collectionId ?? ""}
-                        onChange={handleCollectionChange}
-                    >
-                        <option value="">-- No Collection --</option>
-                        {(collections || []).map((c) => (
-                            <option
-                                key={c.id ?? c._id}
-                                value={String(c.id ?? c._id)}
-                            >
-                                {c.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </div>
+            <label htmlFor="collection">Collection</label>
+            <select
+                id="collection"
+                value={formData.collectionId ?? ""}
+                onChange={handleCollectionChange}
+            >
+                <option value="">-- No Collection --</option>
+                {(collections || []).map((c) => (
+                    <option key={c.id ?? c._id} value={String(c.id ?? c._id)}>
+                        {c.name}
+                    </option>
+                ))}
+            </select>
 
-            <label>Content</label>
+            <label htmlFor="content">Content</label>
             <textarea
                 className="note-form-contentinput"
+                id="content"
                 name="content"
                 value={formData.content}
                 onChange={handleChange}
-                placeholder="Enter Markdown..."
+                placeholder="Enter Markdown text..."
             />
 
             <button

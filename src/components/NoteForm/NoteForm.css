@@ -1,8 +1,10 @@
 .note-form {
     display: flex;
     flex-direction: column;
-    height: calc(100svh - var(--header-height));
+    height: 100%;
     padding: var(--section-spacing);
+    border: var(--border-solid);
+    border-radius: var(--border-radius-main);
 }
 
 .note-form-contentinput {
