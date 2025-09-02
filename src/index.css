@@ -12,6 +12,8 @@
 :root {
     --color-white-main: #f1f1f1;
     --color-white-secondary: #ebebed;
+    --color-white-transparent-dm: #ebebed30;
+    --color-white-transparent-lm: #bebede30;
     --color-black-main: #1f1f1f;
     --color-black-secondary: #0b0b0b;
     --color-black-deep: #00000066;
@@ -27,6 +29,7 @@
 
     --bg-color-main: var(--color-black-main);
     --bg-color-secondary: var(--color-black-secondary);
+    --bg-color-hover: var(--color-white-transparent-dm);
     --bg-color-accent: var(--color-accent);
     --bg-color-accent-disabled: var(--color-accent-disabled);
     --bg-color-danger: var(--color-danger);
@@ -68,6 +71,7 @@
     --margin-items-m: 0.75em;
     --margin-items-l: 1em;
 
+    --flex-gap-ss: 0.625em;
     --flex-gap-s: 1.25em;
     --flex-gap-l: 2.5em;
 
@@ -292,7 +296,7 @@ td {
 
 hr {
     width: 45%;
-    height: 0.25rem;
+    min-height: 0.25rem;
     margin: 2em auto;
     border-radius: var(--border-radius-main);
     background-color: var(--bg-color-accent);
@@ -346,5 +350,6 @@ hr {
 
         --bg-color-main: var(--color-white-main);
         --bg-color-secondary: var(--color-white-secondary);
+        --bg-color-hover: var(--color-white-transparent-lm);
     }
 }
