@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router";
 import { AuthProvider } from "./contexts/AuthContext";
 import { NotesProvider } from "./contexts/NoteContext";
 import { CollectionsProvider } from "./contexts/CollectionContext";
-
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
@@ -14,7 +13,16 @@ const App = () => {
         <AuthProvider>
             <Header />
             <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route
+                    path="/"
+                    element={
+                        <CollectionsProvider>
+                            <NotesProvider>
+                                <HomePage />
+                            </NotesProvider>
+                        </CollectionsProvider>
+                    }
+                />
 
                 <Route path="/sign-up" element={<SignUpPage />} />
 
