@@ -1,0 +1,103 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flex-gap-s);
+    height: 100%;
+    padding: var(--section-spacing);
+    border: var(--border-solid);
+    border-radius: var(--border-radius-main);
+    overflow: auto;
+}
+
+.sidebar-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: var(--flex-gap-s);
+}
+
+.sidebar-controls button {
+    overflow: hidden;
+    background-color: var(--bg-color-accent);
+    color: var(--color-white-main);
+}
+
+.collection-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flex-gap-s);
+}
+
+.collection-block {
+    padding: var(--padding-items-s);
+    border: var(--border-solid);
+    border-radius: var(--border-radius-main);
+    cursor: pointer;
+    white-space: nowrap;
+    overflow-x: hidden;
+    background-color: var(--bg-color-secondary);
+}
+
+.collection-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--flex-gap-ss);
+    font-weight: var(--font-weight-text-l);
+}
+
+.collection-name,
+.chev-btn,
+.menu-btn {
+    display: inline-block;
+    width: fit-content;
+}
+
+.chev-btn,
+.menu-btn {
+    border: none;
+}
+
+.chev-btn:hover,
+.menu-btn:hover {
+    box-shadow: none;
+}
+
+.chev-btn:focus-visible,
+.menu-btn:focus-visible {
+    box-shadow: none;
+    outline: var(--outline-main);
+}
+
+.menu-popover {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--flex-gap-ss);
+}
+
+.note-title {
+    padding: var(--padding-items-s);
+    border: var(--border-dashed);
+    border-radius: var(--border-radius-main);
+    margin: var(--margin-items-s) auto;
+    transition: background-color var(--transition-duration-long)
+        var(--transition-function);
+    font-size: var(--font-size-text-s);
+    text-align: center;
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.note-title:hover {
+    background-color: var(--bg-color-hover);
+}
+
+.collections-notes-hr {
+    width: 90%;
+    margin: 0.5em auto 0;
+}
+
+.notes-list {
+    white-space: nowrap;
+}
