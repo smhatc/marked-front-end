@@ -268,7 +268,7 @@ code {
 
 table {
     display: block;
-    width: 100%;
+    width: fit-content;
     border: var(--border-solid);
     border-radius: var(--border-radius-main);
     border-collapse: collapse;
