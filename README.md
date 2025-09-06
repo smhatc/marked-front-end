@@ -16,7 +16,7 @@ The reason I chose to create a Markdown note-taking app as my project despite it
 
 ## 🚀 Getting Started
 
-**Find it here:** []().
+**Find it here:** [https://marked-front-end.netlify.app](https://marked-front-end.netlify.app).
 
 **Planning materials:** [https://trello.com/b/o2LfthY4/marked](https://trello.com/b/o2LfthY4/marked).
 
